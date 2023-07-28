@@ -6,7 +6,7 @@ import { NavigationMixin } from "lightning/navigation";
 export default class CarSearchForm extends NavigationMixin(LightningElement) {
   @track carTypes;
   @wire(getCarTypes)
-  wiredCarTypes({ data, error }) {
+  wiredCarType({ data, error }) {
     if (data) {
       this.carTypes = [{ value: "", label: "All Types" }];
       data.forEach((element) => {
@@ -16,7 +16,7 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
         this.carTypes.push(carType);
       });
     } else if (error) {
-      this.ShowToastEvent("ERROR", error.body.message, "error");
+      this.showToast("ERROR", error.body.message, "error");
     }
   }
 
@@ -33,12 +33,12 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
       type: "standard__objectPage",
       attributes: {
         objectApiName: "Car_Type__c",
-        actionName: "New"
+        actionName: "new"
       }
     });
   }
 
-  ShowToastEvent(title, message, variant) {
+  showToast(title, message, variant) {
     const evt = new ShowToastEvent({
       title: title,
       message: message,
