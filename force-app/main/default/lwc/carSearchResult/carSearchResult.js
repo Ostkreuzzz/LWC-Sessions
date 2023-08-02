@@ -4,6 +4,7 @@ import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class CarSearchResult extends LightningElement {
   @api carTypeId;
+
   @track cars;
   @track selectedCarId;
 
@@ -25,14 +26,15 @@ export default class CarSearchResult extends LightningElement {
     this.dispatchEvent(evt);
   }
 
+  carSelectHandler(event) {
+    const carId = event.detail;
+    this.selectedCarId = carId;
+  }
+
   get carsFound() {
     if (this.cars) {
       return true;
     }
     return false;
-  }
-
-  carSelectHandler(event) {
-    this.selectedCarId = event.detail;
   }
 }
