@@ -1,4 +1,5 @@
 # Salesforce DX Project: Next Steps
+![image](https://github.com/Ostkreuzzz/LWC-Sessions/assets/93884940/3b492815-96a9-45f6-aefb-bcf929b9c9c3)
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
